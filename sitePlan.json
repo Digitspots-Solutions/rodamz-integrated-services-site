@@ -1,0 +1,49 @@
+{
+  "businessName": "Rodamz Integrated Services",
+  "industry": "Manufacturing",
+  "tone": "professional",
+  "tagline": "Excellence in Integrated Manufacturing Solutions",
+  "sections": [
+    {
+      "id": "hero",
+      "name": "Hero",
+      "copy": "Welcome to Rodamz Integrated Services - Your Trusted Partner in Quality Manufacturing. We deliver comprehensive manufacturing solutions tailored to meet the diverse needs of businesses across Nigeria. With state-of-the-art facilities and a commitment to excellence, we transform raw materials into finished products that drive your success.",
+      "imagePrompt": "Modern Nigerian manufacturing facility with workers in safety gear operating precision machinery, bright industrial lighting, clean production floor with quality control stations, professional atmosphere showing advanced equipment and organized workspace in Abuja",
+      "layout": "centered"
+    },
+    {
+      "id": "about",
+      "name": "About Us",
+      "copy": "Rodamz Integrated Services is a leading manufacturing company based in Abuja, Nigeria. Located in the heart of Lugbe's Trademore Estate, we specialize in providing end-to-end manufacturing solutions that meet international quality standards. Our integrated approach combines cutting-edge technology with skilled craftsmanship to deliver products that exceed client expectations. We pride ourselves on our ability to handle projects of varying scales while maintaining strict quality control measures throughout every stage of production.",
+      "imagePrompt": "Professional team meeting in a Nigerian manufacturing company boardroom, diverse team of engineers and managers reviewing blueprints and quality reports, modern office setting with manufacturing floor visible through glass walls, confidence and expertise evident",
+      "layout": "split"
+    },
+    {
+      "id": "services",
+      "name": "Our Services",
+      "copy": "**Custom Manufacturing** - We provide bespoke manufacturing solutions designed to your exact specifications, ensuring your products meet the highest standards of quality and functionality.\n\n**Product Development** - From concept to completion, our expert team guides you through the entire product development lifecycle, turning your ideas into market-ready products.\n\n**Quality Assurance** - Our rigorous quality control processes guarantee that every product leaving our facility meets or exceeds industry standards and client requirements.\n\n**Supply Chain Management** - We offer comprehensive supply chain solutions, managing procurement, production scheduling, and logistics to ensure timely delivery of your products.\n\n**Technical Consulting** - Leverage our manufacturing expertise to optimize your production processes, reduce costs, and improve product quality through our specialized consulting services.",
+      "imagePrompt": "Collage of Nigerian manufacturing processes showing metal fabrication, assembly lines, quality testing equipment, raw material storage, and finished products being packaged, vibrant industrial setting demonstrating diverse manufacturing capabilities",
+      "layout": "grid"
+    },
+    {
+      "id": "why-choose-us",
+      "name": "Why Choose Rodamz",
+      "copy": "**Local Expertise, Global Standards** - We understand the Nigerian market while maintaining international quality benchmarks in all our manufacturing processes.\n\n**Integrated Solutions** - Our comprehensive service offering means you get everything you need under one roof, from initial design to final delivery.\n\n**Reliable Partnerships** - We build long-term relationships with our clients, becoming a trusted extension of your business operations.\n\n**Strategic Location** - Based in Abuja with easy access to major transportation routes, we ensure efficient distribution across Nigeria and beyond.\n\n**Commitment to Excellence** - Every project receives our full attention to detail, ensuring superior results that contribute to your business growth.",
+      "imagePrompt": "Handshake between business professionals in front of a modern Nigerian manufacturing facility, warm golden hour lighting, Rodamz facility sign visible, conveying trust and partnership, well-maintained industrial complex in background",
+      "layout": "cards"
+    },
+    {
+      "id": "contact",
+      "name": "Contact Us",
+      "copy": "Ready to discuss your manufacturing needs? Get in touch with Rodamz Integrated Services today. Our team is available to answer your questions, provide quotes, and schedule facility tours. We look forward to partnering with you to bring your manufacturing projects to life.\n\n**Visit Our Facility:**\n37 Maxwell Street, Trademore Estate, Lugbe, Abuja, Nigeria\n\n**Office Hours:**\nMonday - Friday: 8:00 AM - 5:00 PM\nSaturday: 9:00 AM - 2:00 PM\n\nLet's build something exceptional together.",
+      "imagePrompt": "Modern Nigerian office reception area with comfortable seating, professional receptionist at desk, Rodamz branding on wall, natural lighting through large windows, welcoming atmosphere with plants and contemporary furniture in Abuja setting",
+      "layout": "centered"
+    }
+  ],
+  "contact": {
+    "phone": "+234 803 750 1897",
+    "email": "info@rodamzintegrated.com",
+    "address": "37 Maxwell Street, Trademore Estate, Lugbe, Abuja, Nigeria",
+    "whatsapp": "https://wa.me/2348037501897"
+  }
+}
