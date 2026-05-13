@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rodamz Integrated Services - Excellence in Integrated Manufacturing Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;800&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #0e1117;
+            --color-accent: #f2781f;
+            --color-bg: #F2EDE6;
+            --color-text: #0D1117;
+            --color-surface: #182733;
+            --color-secondary-accent: #99b4bc;
+            --font-display: 'Exo 2', sans-serif;
+            --font-body: 'Outfit', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(14, 17, 23, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background: var(--color-accent);
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 70px;
+            right: -100%;
+            width: 300px;
+            height: calc(100vh - 70px);
+            background: var(--color-primary);
+            box-shadow: -4px 4px 0 rgba(0,0,0,0.2);
+            transition: right 0.3s ease;
+            z-index: 999;
+            padding: 2rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+        }
+
+        .mobile-menu ul li {
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-menu ul a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 0.5rem 0;
+        }
+
+        .mobile-menu ul a:hover {
+            color: var(--color-accent);
+        }
+
+        /* Hero Section */
+        #hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            color: #ffffff;
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+        }
+
+        .hero-content .tagline {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--color-accent);
+            color: #ffffff;
+            padding: 1rem 3rem;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+        }
+
+        .cta-button:hover {
+            background: #d66a1a;
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+        }
+
+        /* About Section */
+        #about {
+            padding: 80px 2rem;
+            background: var(--color-bg);
+            animation: fadeUp 0.6s ease forwards;
+            animation-delay: 0.1s;
+        }
+
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            box-shadow: 8px 8px 0 var(--color-surface);
+        }
+
+        .about-text h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* Services Section */
+        #services {
+            padding: 80px 2rem;
+            background: var(--color-surface);
+            color: #ffffff;
+            clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+            animation: fadeUp 0.6s ease forwards;
+            animation-delay: 0.2s;
+        }
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .services-container h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-accent);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: rgba(242, 120, 31, 0.1);
+            padding: 2rem;
+            border-left: 4px solid var(--color-accent);
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-accent);
+            text-transform: uppercase;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* Why Choose Us Section */
+        #why-choose-us {
+            padding: 80px 2rem;
+            background: var(--color-bg);
+            animation: fadeUp 0.6s ease forwards;
+            animation-delay: 0.3s;
+        }
+
+        .why-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .why-container h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .why-card {
+            background: #ffffff;
+            padding: 2rem;
+            box-shadow: 6px 6px 0 var(--color-surface);
+        }
+
+        .why-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--color-accent);
+            text-transform: uppercase;
+        }
+
+        .why-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .why-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            box-shadow: 8px 8px 0 var(--color-surface);
+            margin-top: 2rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 80px 2rem;
+            background: var(--color-surface);
+            color: #ffffff;
+            clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+            animation: fadeUp 0.6s ease forwards;
+            animation-delay: 0.4s;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-container h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-accent);
+        }
+
+        .contact-intro {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-card {
+            background: rgba(242, 120, 31, 0.1);
+            padding: 2rem;
+            border-left: 4px solid var(--color-accent);
+        }
+
+        .contact-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--color-accent);
+            text-transform: uppercase;
+        }
+
+        .contact-card a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: var(--color-accent);
+        }
+
+        .contact-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .office-hours {
+            background: rgba(153, 180, 188, 0.2);
+            padding: 2rem;
+            margin: 3rem auto;
+            max-width: 600px;
+            border-left: 4px solid var(--color-secondary-accent);
+        }
+
+        .office-hours h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-secondary-accent);
+            text-transform: uppercase;
+        }
+
+        .office-hours p {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: #ffffff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            background: #20b858;
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-primary);
+            color: #ffffff;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            #hero {
+                height: 100vh;
+                clip-path: polygon(0 0, 100% 0, 100% 98%, 0 100%);
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content .tagline {
+                font-size: 1.1rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            #about,
+            #services,
+            #why-choose-us,
+            #contact {
+                padding: 48px 1.5rem;
+            }
+
+            .about-text h2,
+            .services-container h2,
+            .why-container h2,
+            .contact-container h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid,
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="logo">Rodamz</div>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#why-choose-us">Why Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+<div class="mobile-menu">
+    <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why-choose-us">Why Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</div>
+
+<section id="hero">
+    <img src="https://images.pexels.com/photos/31212949/pexels-photo-31212949.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Modern manufacturing facility" class="hero-image">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Rodamz Integrated Services</h1>
+        <p class="tagline">Excellence in Integrated Manufacturing Solutions</p>
+        <p>Welcome to Rodamz Integrated Services - Your Trusted Partner in Quality Manufacturing. We deliver comprehensive manufacturing solutions tailored to meet the diverse needs of businesses across Nigeria. With state-of-the-art facilities and a commitment to excellence, we transform raw materials into finished products that drive your success.</p>
+        <a href="#contact" class="cta-button">Get Started</a>
+    </div>
+</section>
+
+<section id="about">
+    <div class="about-container">
+        <img src="https://images.pexels.com/photos/30688597/pexels-photo-30688597.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Professional manufacturing team" class="about-image">
+        <div class="about-text">
+            <h2>About Us</h2>
+            <p>Rodamz Integrated Services is a leading manufacturing company based in Abuja, Nigeria. Located in the heart of Lugbe's Trademore Estate, we specialize in providing end-to-end manufacturing solutions that meet international quality standards. Our integrated approach combines cutting-edge technology with skilled craftsmanship to deliver products that exceed client expectations. We pride ourselves on our ability to handle projects of varying scales while maintaining strict quality control measures throughout every stage of production.</p>
+        </div>
+    </div>
+</section>
+
+<section id="services">
+    <div class="services-container">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Custom Manufacturing</h3>
+                <p>We provide bespoke manufacturing solutions designed to your exact specifications, ensuring your products meet the highest standards of quality and functionality.</p>
+            </div>
+            <div class="service-card">
+                <h3>Product Development</h3>
+                <p>From concept to completion, our expert team guides you through the entire product development lifecycle, turning your ideas into market-ready products.</p>
+            </div>
+            <div class="service-card">
+                <h3>Quality Assurance</h3>
+                <p>Our rigorous quality control processes guarantee that every product leaving our facility meets or exceeds industry standards and client requirements.</p>
+            </div>
+            <div class="service-card">
+                <h3>Supply Chain Management</h3>
+                <p>We offer comprehensive supply chain solutions, managing procurement, production scheduling, and logistics to ensure timely delivery of your products.</p>
+            </div>
+            <div class="service-card">
+                <h3>Technical Consulting</h3>
+                <p>Leverage our manufacturing expertise to optimize your production processes, reduce costs, and improve product quality through our specialized consulting services.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="why-choose-us">
+    <div class="why-container">
+        <h2>Why Choose Rodamz</h2>
+        <div class="why-grid">
+            <div class="why-card">
+                <h3>Local Expertise, Global Standards</h3>
+                <p>We understand the Nigerian market while maintaining international quality benchmarks in all our manufacturing processes.</p>
+            </div>
+            <div class="why-card">
+                <h3>Integrated Solutions</h3>
+                <p>Our comprehensive service offering means you get everything you need under one roof, from initial design to final delivery.</p>
+            </div>
+            <div class="why-card">
+                <h3>Reliable Partnerships</h3>
+                <p>We build long-term relationships with our clients, becoming a trusted extension of your business operations.</p>
+            </div>
+            <div class="why-card">
+                <h3>Strategic Location</h3>
+                <p>Based in Abuja with easy access to major transportation routes, we ensure efficient distribution across Nigeria and beyond.</p>
+            </div>
+            <div class="why-card">
+                <h3>Commitment to Excellence</h3>
+                <p>Every project receives our full attention to detail, ensuring superior results that contribute to your business growth.</p>
+            </div>
+        </div>
+        <img src="https://images.pexels.com/photos/36712839/pexels-photo-36712839.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Business partnership handshake" class="why-image">
+    </div>
+</section>
+
+<section id="contact">
+    <div class="contact-container">
+        <h2>Contact Us</h2>
+        <p class="contact-intro">Ready to discuss your manufacturing needs? Get in touch with Rodamz Integrated Services today. Our team is available to answer your questions, provide quotes, and schedule facility tours. We look forward to partnering with you to bring your manufacturing projects to life.</p>
+        <div class="contact-details">
+            <div class="contact-card">
+                <h3>Call Us</h3>
+                <a href="tel:+2348037501897">+234 803 750 1897</a>
+            </div>
+            <div class="contact-card">
+                <h3>Email Us</h3>
+                <a href="mailto:info@rodamzintegrated.com">info@rodamzintegrated.com</a>
+            </div>
+            <div class="contact-card">
+                <h3>Visit Our Facility</h3>
+                <p>37 Maxwell Street, Trademore Estate, Lugbe, Abuja, Nigeria</p>
+            </div>
+        </div>
+        <div class="office-hours">
+            <h3>Office Hours</h3>
+            <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+            <p>Saturday: 9:00 AM - 2:00 PM</p>
+        </div>
+        <p style="margin-top: 2rem; font-size: 1.2rem;">Let's build something exceptional together.</p>
+    </div>
+</section>
+
+<a href="https://wa.me/2348037501897" class="whatsapp-float" target="_blank" aria-label="Contact us on WhatsApp">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+</a>
+
+<footer>
+    <p>&copy; 2024 Rodamz Integrated Services. All rights reserved.</p>
+    <p>37 Maxwell Street, Trademore Estate, Lugbe, Abuja, Nigeria</p>
+</footer>
+
+<script>
+// Mobile menu toggle
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const mobileMenu = document.querySelector('.mobile-menu');
+
+if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenuBtn.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenuBtn.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        });
+    });
+}
+</script>
+
+</body>
+</html>
